@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Date Invitation</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fce4ec;
+        }
+
+        #question-container {
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            background-color: #ffb6c1;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            position: relative;
+            transition: transform 0.3s ease-in-out;
+        }
+
+                .cute-sticker {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            z-index: 0;
+        }
+
+        .sticker1 {
+            top: 50px;
+            left: 50px;
+        }
+
+        .sticker2 {
+            top: 150px;
+            left: 710px;
+        }
+
+        .sticker3 {
+            top: 50px;
+            left: 1350px;
+        }
+
+        .sticker4 {
+            top: 450px;
+            left: 500px;
+        }
+
+        .sticker5 {
+            top: 550px;
+            left: 550px;
+        }
+
+        .sticker6 {
+            top: 550px;
+            left: 1350px;
+        }
+
+        .sticker7 {
+            top: 550px;
+            left: 50px;
+        }
+
+        .sticker8 {
+            top: 150px;
+            left: 480px;
+        }
+
+        .sticker9 {
+            top: 300px;
+            left: 50px;
+        }
+
+        .sticker10 {
+            top: 450px;
+            left: 1200px;
+        }
+
+        .sticker11 {
+            top: 300px;
+            left: 1350px;
+        }
+
+        .sticker12 {
+            top: 150px;
+            left: 950px;
+        }
+
+        #fixDate {
+            display: none;
+            background-color: #64b5f6;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="question-container">
+        <h1>Do you wanna go out with me?</h1>
+        <button id="yes" onclick="showNextButton()">Yes</button>
+        <button id="no" onmouseover="changeButtonPosition()">No</button>
+        <button id="fixDate" onclick="showDatePicker()">Let's fix a date</button>
+        <div id="datePickerContainer" style="display: none;">
+            <input type="date" id="datePicker">
+            <button onclick="sendConfirmation()">Confirm</button>
+        </div>  
+    </div>
+
+    <img class="cute-sticker sticker1" src="7592510.png" alt="Cute Sticker">
+    <img class="cute-sticker sticker2" src="7592510.png" alt="Cute Sticker">
+    <img class="cute-sticker sticker3" src="7592510.png" alt="Cute Sticker">
+    <img class="cute-sticker sticker6" src="star.png" alt="Cute Sticker">
+    <img class="cute-sticker sticker7" src="star.png" alt="Cute Sticker">
+    <img class="cute-sticker sticker8" src="star.png" alt="Cute Sticker">
+    <img class="cute-sticker sticker9" src="hehe.png" alt="Cute Sticker">
+    <img class="cute-sticker sticker11" src="hehe.png" alt="Cute Sticker">
+    <img class="cute-sticker sticker12" src="hehe.png" alt="Cute Sticker">
+
+    <script>
+        function getRandomPosition() {
+            var maxX = window.innerWidth - 150; // Adjust based on button width
+            var maxY = window.innerHeight - 150; // Adjust based on button height
+
+            var randomX = Math.floor(Math.random() * maxX);
+            var randomY = Math.floor(Math.random() * maxY);
+
+            return 'translate(' + randomX + 'px, ' + randomY + 'px)';
+        }
+
+        function changeButtonPosition() {
+            document.getElementById('no').style.transform = getRandomPosition();
+        }
+
+        function showNextButton() {
+            document.getElementById('no').style.display = 'none';
+            document.getElementById('fixDate').style.display = 'inline-block';
+        }
+
+        function showDatePicker() {
+                document.getElementById('fixDate').style.display = 'none';
+                document.getElementById('datePickerContainer').style.display = 'block';
+        }
+
+        function sendConfirmation() {
+            var selectedDate = document.getElementById('datePicker').value;
+            alert("Nihar says\nYay! Looking forward to it!\nMessaged you 💖📱\nPick you up on " + selectedDate);
+        }
+    </script>
+</body>
+
+</html>
