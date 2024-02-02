@@ -112,7 +112,7 @@
     <div id="question-container">
         <h1>Do you wanna go out with me?</h1>
         <button id="yes" onclick="showNextButton()">Yes</button>
-        <button id="no" onmouseover="changeButtonPosition()">No</button>
+        <button id="no" onmouseover="changeButtonPosition()" onclick="showPopup()">No</button>
         <button id="fixDate" onclick="showDatePicker()">Let's fix a date</button>
         <div id="datePickerContainer" style="display: none;">
             <input type="date" id="datePicker">
@@ -141,6 +141,15 @@
             return 'translate(' + randomX + 'px, ' + randomY + 'px)';
         }
 
+        function showPopup() {
+                alert("Oops! Try again!");
+                document.getElementById('no').style.transform = getRandomPosition();
+                document.getElementById('no').innerText = 'YESSSSS!';
+                document.getElementById('no').onclick = function () {
+                    showNextButton2();
+                };
+            }
+
         function changeButtonPosition() {
             document.getElementById('no').style.transform = getRandomPosition();
         }
@@ -148,6 +157,11 @@
         function showNextButton() {
             document.getElementById('no').style.display = 'none';
             document.getElementById('fixDate').style.display = 'inline-block';
+        }
+
+        function showNextButton2() {
+                document.getElementById('yes2').style.display = 'none';
+                document.getElementById('fixDate').style.display = 'inline-block';
         }
 
         function showDatePicker() {
